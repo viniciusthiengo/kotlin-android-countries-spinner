@@ -34,18 +34,27 @@ class CountriesAdapter(
     override fun getItemId(position: Int)
         = countries[position].id
 
+    /**
+     * Método onde acontece o vinculo de objetos Country à
+     * suas posições em Spinner.
+     */
     override fun getView(
         position: Int,
         layout: View?,
         parent: ViewGroup?
     ): View {
-
         val auxLayout : View
         val viewHolder : ViewHolder
 
+        /**
+         * Bloco condicional responsável implementar o padrão
+         * ViewHolder de reutilização de componente visual em
+         * memória.
+         */
         if( layout == null ) {
 
-            auxLayout = LayoutInflater.from(context)
+            auxLayout = LayoutInflater
+                .from( context )
                 .inflate(
                     R.layout.country_item,
                     parent,
@@ -69,6 +78,17 @@ class CountriesAdapter(
     }
 
 
+    /**
+     * Classe interna que ajuda na implementação do padrão
+     * ViewHolder dentro do método getView().
+     *
+     * Padrão responsável por reaproveitar componentes visuais
+     * já criados em memória.
+     *
+     * Dentro desta classe ficam como propriedade todas os
+     * componentes visuais que passarão por atualização em
+     * getView().
+     */
     private class ViewHolder( layout: View ) {
         var tvName: TextView
         var ivFlag: ImageView

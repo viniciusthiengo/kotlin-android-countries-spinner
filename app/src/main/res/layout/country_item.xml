@@ -7,6 +7,18 @@
     android:orientation="horizontal"
     android:padding="12dp">
 
+    <!--
+        É muito importante o total entendimento do componente visual
+        LinearLayout para então saber o porquê de termos utilizado
+        aqui o atributo android:layout_weight nas três visualizações
+        filhas de LinearLayout.
+
+        Sendo assim, não deixe de consumir o conteúdo (vídeo e texto)
+        do link a seguir:
+
+        https://www.thiengo.com.br/linearlayout-no-android-entendendo-e-utilizando
+    -->
+
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="0dp"
