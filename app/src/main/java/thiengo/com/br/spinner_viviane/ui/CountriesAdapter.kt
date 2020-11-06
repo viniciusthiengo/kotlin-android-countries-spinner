@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,6 +12,14 @@ import thiengo.com.br.spinner_viviane.R
 import thiengo.com.br.spinner_viviane.model.Country
 
 
+/**
+ * Classe adaptadora de itens para que seja possível utilizar
+ * em [Spinner] um layout de itens customizado.
+ *
+ * É necessário herdar da classe [BaseAdapter].
+ *
+ * Mais sobre o [BaseAdapter] em: https://www.thiengo.com.br/utilizando-baseadapter-para-personalizacao-completa-da-listview
+ */
 class CountriesAdapter(
     private val context: Context,
     private val countries: List<Country>
