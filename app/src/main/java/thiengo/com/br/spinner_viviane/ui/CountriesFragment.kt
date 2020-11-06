@@ -167,8 +167,8 @@ class CountriesFragment : Fragment(), AdapterView.OnItemSelectedListener {
      * regras de negócio deste projeto.
      */
     override fun onItemSelected(
-        parent: AdapterView<*>,
-        view: View,
+        parent: AdapterView<*>?,
+        view: View?,
         position: Int,
         id: Long ) {
 
