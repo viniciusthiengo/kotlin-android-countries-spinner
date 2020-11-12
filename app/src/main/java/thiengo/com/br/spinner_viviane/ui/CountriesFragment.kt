@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.LinearLayout
+import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_countries.*
 import thiengo.com.br.spinner_viviane.R
 import thiengo.com.br.spinner_viviane.model.Country
@@ -168,9 +170,33 @@ class CountriesFragment : Fragment(), AdapterView.OnItemSelectedListener {
      */
     override fun onItemSelected(
         parent: AdapterView<*>?,
-        view: View?,
+        viewRootItem: View?,
         position: Int,
         id: Long ) {
+
+        /**
+         * [viewRootItem] é o layout do item selecionado. Em
+         * nosso caso é o LinearLayout root do item (construído
+         * a partir do layout country_item.xml).
+         *
+         * Assim basta acessar as visualizações dentro deste
+         * layout (TextView, ImageView e TextView) e esconder
+         * as duas últimas (ImageView e TextView) para que a
+         * visualização em Spinner de item selecionado permaneça
+         * apenas com o texto inicial.
+         */
+        if( viewRootItem != null ){
+
+            val layout = (viewRootItem as LinearLayout)
+
+            /*
+             * O loop abaixo inicia em 1, pois o primeiro
+             * TextView deve permanecer sem alterações.
+             */
+            for( pos in 1 .. (layout.childCount - 1) ){
+                layout.getChildAt( pos ).visibility = View.GONE
+            }
+        }
 
         if( countries[ position ].info.isEmpty() ){
             tv_selected_state.text = EMPTY_STRING
